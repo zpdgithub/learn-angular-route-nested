@@ -40,6 +40,12 @@ import { ByIdComponent } from './products/ByIdComponent';
 })
 
 export class ProductsComponent {
+  constructor(private router: Router, private route: ActivatedRoute) {
+  }
+
+  goToProduct(id: string): void {
+    this.router.navigate(['./', id], { relativeTo: this.route });
+  }
 }
 
 export const routes: Routes = [
