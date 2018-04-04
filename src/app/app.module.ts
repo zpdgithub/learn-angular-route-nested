@@ -5,6 +5,11 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from '@angular/common';
+import {
+  RouterModule,
+  Router,
+  Routes
+} from '@angular/router';
 
 /*
  * Components
@@ -14,10 +19,32 @@ import { ProductsComponent } from './components/ProductsComponent';
 
 @Component({
   selector: 'app-root',
-  template: `(root)`
+  template: `
+  <div class="page-header">
+    <div class="container">
+      <h1>Router Sample</h1>
+      <div class="navLinks">
+        <a [routerLink]="['/home']">Home</a>
+        <a [routerLink]="['/products']">Products</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  `
 })
 export class AppComponent {
 }
+
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'products', component: ProductsComponent }
+];
 
 @NgModule({
   declarations: [
@@ -26,7 +53,8 @@ export class AppComponent {
     ProductsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }
