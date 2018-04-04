@@ -2,6 +2,12 @@
  * Angular
  */
 import { Component } from '@angular/core';
+import {
+  RouterModule,
+  ActivatedRoute,
+  Router,
+  Routes
+} from '@angular/router';
 
 /*
  * Components
