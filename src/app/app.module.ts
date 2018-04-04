@@ -15,7 +15,11 @@ import {
  * Components
  */
 import { HomeComponent } from './components/HomeComponent';
-import { ProductsComponent } from './components/ProductsComponent';
+import {
+  routes as childRoutes,
+  ProductsComponent,
+  ProductsComponentModule
+} from './components/ProductsComponent';
 
 @Component({
   selector: 'app-root',
@@ -43,18 +47,18 @@ export class AppComponent {
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'products', component: ProductsComponent }
+  { path: 'products', component: ProductsComponent, children: childRoutes }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ProductsComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ProductsComponentModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }
