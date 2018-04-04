@@ -38,3 +38,11 @@ import { ByIdComponent } from './products/ByIdComponent';
 
 export class ProductsComponent {
 }
+
+export const routes: Routes = [
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: 'main', component: MainComponent },
+  { path: ':id', component: ByIdComponent },
+  { path: 'interest', component: InterestComponent },
+  { path: 'sportify', component: SportifyComponent },
+];
