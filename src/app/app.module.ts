@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
  * Components
  */
 import { HomeComponent } from './components/HomeComponent';
+import { ProductsComponent } from './components/ProductsComponent';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,11 @@ import { HomeComponent } from './components/HomeComponent';
 export class AppComponent {
 }
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule
