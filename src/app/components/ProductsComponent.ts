@@ -1,7 +1,10 @@
 /*
  * Angular
  */
-import { Component } from '@angular/core';
+import {
+  NgModule,
+  Component
+} from '@angular/core';
 import {
   RouterModule,
   ActivatedRoute,
@@ -46,3 +49,22 @@ export const routes: Routes = [
   { path: 'interest', component: InterestComponent },
   { path: 'sportify', component: SportifyComponent },
 ];
+
+@NgModule({
+  declarations: [
+    ProductsComponent,
+    MainComponent,
+    InterestComponent,
+    SportifyComponent,
+    ByIdComponent
+  ],
+  exports: [
+    ProductsComponent,
+    MainComponent,
+    InterestComponent,
+    SportifyComponent,
+    ByIdComponent
+  ],
+  imports: [RouterModule]
+})
+export class ProductsComponentModule { }
